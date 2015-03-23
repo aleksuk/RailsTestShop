@@ -1,0 +1,14 @@
+<h1>Orders</h1>
+
+<% @orders.each do |order| %>
+    <% order.products.each do |product| %>
+        <div>
+            <%= link_to product.name, product_path(product) %>
+            <span>$<%= product.price %></span>
+        </div>
+    <% end %>
+    Total price: $<%= order.total_price %>
+    <br />
+<% end %>
+
+<%= link_to 'Home', products_path %>
