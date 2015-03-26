@@ -5,12 +5,12 @@
         <%= link_to product.name, product_path(product) %>
         <span>$<%= product.price %></span>
         <span><%= product.description %></span>
-        <%= link_to 'Remove from cart', prdouct_in_cart_path(product), method: :delete %>
+        <%= link_to 'Remove from cart', cart_path(product), method: :delete %>
     </div>
 <% end %>
 
 <br />
 
-<%= link_to 'Clear cart', cart_path, method: :delete %> |
+<%= link_to 'Clear cart', cart_path({ :id => 'all' }), method: :delete %> |
 <%= link_to 'Home', products_path %> |
-<%= link_to 'Buy', create_order_path, method: :post %>
+<%= link_to 'Buy', orders_path, method: :post %>

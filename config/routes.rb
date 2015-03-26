@@ -1,19 +1,21 @@
 Rails.application.routes.draw do
   get 'orders/index'
 
-  get 'cart' => 'cart#index', as: :cart
-  delete 'cart' => 'cart#delete'
+  # get 'cart' => 'cart#index', as: :cart
+  # delete 'cart' => 'cart#delete'
 
-  get 'cart/:id/add' => 'cart#add_to_cart', as: :add_to_cart
-  delete 'cart/:id' => 'cart#delete', as: :prdouct_in_cart
+  # get 'cart/:id/add' => 'cart#add_to_cart', as: :add_to_cart
+  # delete 'cart/:id' => 'cart#delete', as: :prdouct_in_cart
 
-  post 'cart/create' => 'cart#create_order', as: :create_order
+  # post 'cart/create' => 'cart#create_order', as: :create_order
 
   get 'orders' => 'orders#index', as: :orders
   # get 'products/index'
 
   # get 'products' => 'products#index', as: :product
   resources :products
+  resources :cart
+  resources :orders
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
