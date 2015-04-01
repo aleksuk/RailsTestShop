@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
   # get 'products' => 'products#index', as: :product
   resources :products
-
+  root 'products#index'
   resource :cart, only: [:update, :show, :destroy]
   
   resources :orders, only: [:index, :create]
