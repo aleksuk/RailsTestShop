@@ -10,9 +10,11 @@
     </p>
 
     <p>
-        <%= f.label :description %><br>
+        <%= f.label :description, multiple: true %><br>
         <%= f.text_field :description %>
     </p>
+
+    <%= f.file_field :image %>
 
     <%= f.submit %>
 <% end %>

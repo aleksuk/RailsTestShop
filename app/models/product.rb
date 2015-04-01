@@ -1,7 +1,12 @@
 class Product < ActiveRecord::Base
 
+  #scope :cheap => { where('price < 2') },
+      # :cheaper_then => (p) { where('price < p') }   
+
   has_many :orders, through: :order_products
   has_many :order_products
+
+  mount_uploader :image, ProductUploader
 
   validates :name,
             presence: true,
@@ -16,3 +21,4 @@ class Product < ActiveRecord::Base
   end
 
 end
+#use scope like Product.cheap

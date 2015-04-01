@@ -1,7 +1,11 @@
 class ProductsController < ApplicationController
 
+  before_action :authenticate_user!,
+                :except => [:index, :show]
+
   def index
-    @products = Product.all
+    @products = Product.paginate(:page => params[:page], :per_page => 2)
+    # @products = Product.all
   end
 
   def show
@@ -45,7 +49,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :price, :description)
+    params.require(:product).permit(:name, :price, :description, :image)
   end
 
 end

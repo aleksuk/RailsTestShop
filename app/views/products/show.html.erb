@@ -5,6 +5,8 @@
     <div>Description: <%= @product.description %></div>
 <% end %>
 
+<%= image_tag(@product.image) %>
+
 <%= link_to 'Edit', edit_product_path %> | 
 <%= link_to 'Destroy', product_path(@product), method: :delete %> | 
 <%= link_to 'Back', products_path %> 

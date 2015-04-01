@@ -5,13 +5,15 @@
         <%= link_to product.name, product_path(product) %>
         <span>$<%= product.price %></span>
         <span><%= product.description %></span>
-        <%= link_to 'Add to cart', cart_path(product), method: :patch %>
+        <%= link_to 'Add to cart', cart_path(:id => product.id), method: :patch %>
     </div>
 <% end %>
 
 <br />
 
+<%= will_paginate @products %>
+
 
 <%= link_to 'Add product', new_product_path %> |
-<%= link_to 'Show cart', cart_index_path %> |
+<%= link_to 'Show cart', cart_path %> |
 <%= link_to 'Show orders', orders_path %>
